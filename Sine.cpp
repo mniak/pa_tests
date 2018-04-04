@@ -6,9 +6,9 @@ using namespace std;
 Sine::Sine() : stream(0), left_phase(0), right_phase(0)
 {
 	/* initialise sinusoidal wavetable */
-	for (int i = 0; i < TABLE_SIZE; i++)
+	for (int i = 0; i < SINE_TABLE_SIZE; i++)
 	{
-		sine[i] = (float)sin(((double)i / (double)TABLE_SIZE) * M_PI * 2.);
+		sine[i] = (float)sin(((double)i / (double)SINE_TABLE_SIZE) * M_PI * 2.);
 	}
 	message = "No Message";
 }
@@ -111,12 +111,17 @@ int Sine::paCallbackMethod(const void *inputBuffer, void *outputBuffer,
 
 	for (i = 0; i < framesPerBuffer; i++)
 	{
-		*out++ = sine[left_phase];  /* left */
-		*out++ = sine[right_phase];  /* right */
+		float leftVal = sine[left_phase];
+		float rightVal = sine[right_phase];
+
+		*out++ = leftVal;
+		*out++ = rightVal;
 		left_phase += 1;
-		if (left_phase >= TABLE_SIZE) left_phase -= TABLE_SIZE;
-		right_phase += 3; /* higher pitch so we can distinguish left and right. */
-		if (right_phase >= TABLE_SIZE) right_phase -= TABLE_SIZE;
+		right_phase += 2; /* higher pitch so we can distinguish left and right. */
+
+		 // Cycle over table
+		if (left_phase >= SINE_TABLE_SIZE) left_phase -= SINE_TABLE_SIZE;
+		if (right_phase >= SINE_TABLE_SIZE) right_phase -= SINE_TABLE_SIZE;
 	}
 
 	return paContinue;

@@ -32,7 +32,7 @@ private:
 	static void paStreamFinished(void* userData);
 
 	PaStream *stream;
-	float sine[TABLE_SIZE];
+	float sine[SINE_TABLE_SIZE];
 	int left_phase;
 	int right_phase;
 	std::string message;
