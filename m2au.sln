@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "m2au", "m2au.vcxproj", "{A8B98EB8-114A-4CC3-87EC-CE4B41DC3EFA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "m2au", ".\m2au\m2au.vcxproj", "{A8B98EB8-114A-4CC3-87EC-CE4B41DC3EFA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "m2au_sdl", "..\m2au_sdl\m2au_sdl.vcxproj", "{1DD5F6BB-E86E-46C8-B432-1C87190A851D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "m2au_sdl", ".\m2au_sdl\m2au_sdl.vcxproj", "{1DD5F6BB-E86E-46C8-B432-1C87190A851D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
